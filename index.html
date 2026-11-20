@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#11130f">
+  <meta name="description" content="A 100-level Geometry Dash progression tracker, from Stereo Madness to Medium Demon.">
+  <title>DASH//100 — Geometry Dash Progression</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-noise" aria-hidden="true"></div>
+  <header class="topbar" id="top">
+    <a class="brand" href="#top" aria-label="Dash 100 home"><span class="brand-cube"><i></i></span><span>DASH<span class="brand-slash">//</span>100</span></a>
+    <nav class="topnav" aria-label="Main navigation">
+      <a class="nav-link active" href="#roadmap">Roadmap</a>
+      <a class="nav-link" href="#tracker">My progress</a>
+      <a class="nav-link" href="#notes">About</a>
+    </nav>
+    <div class="top-right"><span class="status-dot"></span><span>PLAYER ROUTE</span><span class="top-version">V1.1</span></div>
+    <button class="mobile-menu" id="mobileMenu" aria-label="Open navigation">☰</button>
+  </header>
+
+  <main class="shell">
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-line"></span> GEOMETRY DASH / PLAYER PROGRESSION</div>
+        <h1>THE LONG<br><em>WAY UP.</em></h1>
+        <p class="hero-sub">100 levels. One route. Start with the basics, clear the main levels, then work your way into demons.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#roadmap">OPEN THE LIST <span>↘</span></a>
+          <button class="button button-quiet" id="continueBtn">PICK UP WHERE I LEFT OFF <span>→</span></button>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="art-index">ROUTE<br><b>001—100</b></div>
+        <div class="art-grid"></div>
+        <div class="art-cube cube-large"><span></span></div>
+        <div class="art-cube cube-small"><span></span></div>
+        <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+        <div class="art-axis"></div>
+        <div class="art-caption">NO SHORTCUTS<br>JUST PROGRESS</div>
+      </div>
+      <div class="hero-bottom"><span>START HERE <b>#001 · STEREO MADNESS</b></span><span>UPDATED FOR 2.2 <i>●</i></span></div>
+    </section>
+
+    <section class="stat-grid" id="tracker" aria-label="Your progress statistics">
+      <article class="stat-card stat-main"><div class="stat-label">ROUTE COMPLETION <span>01 / 04</span></div><div class="stat-value" id="overallPercent">0<span>%</span></div><div class="progress-track"><div class="progress-fill" id="overallBar"></div></div><div class="stat-foot"><span id="completedLabel">0 / 100 CLEARED</span><span class="stat-accent">YOUR SAVE</span></div></article>
+      <article class="stat-card"><div class="stat-label">LEVELS CLEARED <span>02 / 04</span></div><div class="stat-value" id="clearedCount">00<span>/100</span></div><div class="stat-foot"><span>FULL COMPLETIONS</span><span class="stat-mark">↗</span></div></article>
+      <article class="stat-card"><div class="stat-label">COIN GOALS <span>03 / 04</span></div><div class="stat-value" id="coinCount">00<span>/100</span></div><div class="stat-foot"><span>ALL TARGETS MET</span><span class="stat-mark">◉</span></div></article>
+      <article class="stat-card"><div class="stat-label">UP NEXT <span>04 / 04</span></div><div class="stat-tier-value" id="currentTier">MAIN LEVELS</div><div class="stat-foot"><span id="tierHint">#001 · STEREO MADNESS</span><span class="stat-mark">→</span></div></article>
+    </section>
+
+    <section class="content-layout" id="roadmap">
+      <aside class="sidebar">
+        <div class="side-heading">FILTER BY STAGE <span>100</span></div>
+        <button class="stage-button selected" data-stage="all"><span class="stage-number">00</span><span class="stage-text"><b>Full route</b><small>Every level, in order</small></span><span class="stage-count" id="count-all">100</span></button>
+        <div class="stage-divider">THE MAIN LEVELS</div>
+        <button class="stage-button" data-stage="official"><span class="stage-number mint">01</span><span class="stage-text"><b>Official levels</b><small>Stereo Madness → Dash</small></span><span class="stage-count" id="count-official">22</span></button>
+        <div class="stage-divider">USER LEVELS</div>
+        <button class="stage-button" data-stage="starter"><span class="stage-number lime">02</span><span class="stage-text"><b>First demons</b><small>Get the first few clears</small></span><span class="stage-count" id="count-starter">15</span></button>
+        <button class="stage-button" data-stage="easy"><span class="stage-number blue">03</span><span class="stage-text"><b>Easy Demon</b><small>Build consistency</small></span><span class="stage-count" id="count-easy">30</span></button>
+        <button class="stage-button" data-stage="bridge"><span class="stage-number violet">04</span><span class="stage-text"><b>Upper Easy</b><small>Harder Easy Demon picks</small></span><span class="stage-count" id="count-bridge">15</span></button>
+        <button class="stage-button" data-stage="medium"><span class="stage-number orange">05</span><span class="stage-text"><b>Medium Demon</b><small>First medium clears</small></span><span class="stage-count" id="count-medium">18</span></button>
+        <div class="sidebar-note"><span class="note-mark">✳</span><b>TAKE THE TIME.</b><p>Move on when a level feels consistent. The route is a guide, not a deadline.</p></div>
+        <div class="side-footer">DASH//100 <span>UNOFFICIAL PLAYER PROJECT</span></div>
+      </aside>
+
+      <section class="leaderboard-wrap">
+        <div class="section-topline">
+          <div><div class="section-kicker">THE ROUTE / 001—100</div><h2>The level list<span class="heading-dot">.</span></h2><p class="section-desc">In progression order. Select a level to see its notes and update your run.</p></div>
+          <div class="sort-wrap"><label for="sortSelect">SORT</label><select id="sortSelect"><option value="rank">Route order</option><option value="name">Name A–Z</option><option value="difficulty">Difficulty</option><option value="status">Cleared last</option></select></div>
+        </div>
+        <div class="toolbar"><label class="search-box"><span class="search-icon">⌕</span><input id="searchInput" type="search" placeholder="Find a level, creator, ID or skill…" autocomplete="off"><kbd>/</kbd></label><div class="filter-pills"><button class="filter-pill active" data-filter="all">ALL <span id="filterAll">100</span></button><button class="filter-pill" data-filter="todo">TO DO</button><button class="filter-pill" data-filter="done">CLEARED</button><button class="filter-pill" data-filter="coins">COINS LEFT</button></div></div>
+        <div class="table-heading"><span>NO.</span><span>LEVEL</span><span>RATING</span><span>COINS</span><span>STATUS</span><span></span></div>
+        <div id="levelList" class="level-list" aria-live="polite"></div>
+        <div id="emptyState" class="empty-state" hidden><div>⌕</div><b>NOTHING HERE</b><span>Try a different search or filter.</span></div>
+        <div class="list-footer"><span id="resultCount">SHOWING 100 LEVELS</span><span>CLICK A LEVEL FOR DETAILS <b>↗</b></span></div>
+      </section>
+    </section>
+
+    <section class="bottom-grid" id="notes">
+      <article class="bottom-card next-card"><div class="bottom-card-top"><span>UP NEXT</span><span class="mini-tag">AUTO PICK</span></div><div class="next-content"><div class="next-rank" id="nextRank">#001</div><div><h3 id="nextName">Stereo Madness</h3><p id="nextCreator">by RobTop · Official level</p></div></div><button class="next-button" id="nextTargetBtn">OPEN LEVEL DETAILS <span>↗</span></button></article>
+      <article class="bottom-card coin-card"><div class="bottom-card-top"><span>COIN TARGETS</span><span class="coin-symbol">◉</span></div><h3>Get every secret coin.</h3><p>Official levels have a 3-coin target. For custom levels, aim for every coin available; the exact count can be set in each level’s details.</p><div class="coin-rule-foot"><span>DEFAULT TARGET</span><b>ALL AVAILABLE</b></div></article>
+      <article class="bottom-card backup-card"><div class="bottom-card-top"><span>PROGRESS BACKUP</span><span class="backup-status" id="saveStatus">● SAVED IN THIS BROWSER</span></div><h3>Your clears stay yours.</h3><p>Progress is saved in this browser. Export a backup before switching devices or browsers.</p><div class="backup-actions"><button id="exportBtn">EXPORT ↓</button><button id="importBtn">IMPORT ↑</button><button id="resetBtn" class="reset-btn">RESET</button></div><input id="importFile" type="file" accept="application/json,.json" hidden></article>
+    </section>
+    <footer class="site-footer"><a class="brand footer-brand" href="#top"><span class="brand-cube"><i></i></span><span>DASH<span class="brand-slash">//</span>100</span></a><span>AN UNOFFICIAL GEOMETRY DASH PROGRESSION TRACKER.</span><span>NOT AFFILIATED WITH ROBTOP OR POINTERCRATE.</span></footer>
+  </main>
+
+  <div class="modal-backdrop" id="levelModal" hidden>
+    <section class="detail-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" aria-label="Close details">×</button>
+      <div class="modal-kicker" id="modalKicker">LEVEL / 001</div>
+      <div class="modal-heading"><div><h2 id="modalTitle">Stereo Madness</h2><p id="modalCreator">by RobTop</p></div><span id="modalBadge" class="difficulty-badge official-badge">EASY</span></div>
+      <p id="modalNote" class="modal-note"></p>
+      <div class="detail-meta"><div><span>LEVEL ID</span><b id="modalId">Official level</b></div><div><span>SKILL FOCUS</span><b id="modalSkill">Cube · Ship</b></div><div><span>COIN GOAL</span><b id="modalCoinLabel">3 COINS</b></div></div>
+      <div class="coin-editor"><label for="coinGoal">COIN TARGET</label><select id="coinGoal"><option value="all">All available</option><option value="0">0 coins</option><option value="1">1 coin</option><option value="2">2 coins</option><option value="3">3 coins</option></select><label for="coinsCollected">COINS COLLECTED</label><select id="coinsCollected"><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select><label class="coin-done-label"><input type="checkbox" id="modalCoinsDone"> COIN TARGET COMPLETED</label></div>
+      <div class="modal-actions"><label class="clear-toggle"><input type="checkbox" id="modalCleared"> <span>MARK LEVEL CLEARED</span></label><a id="searchLevelLink" class="button button-primary" href="#" target="_blank" rel="noopener">FIND LEVEL ↗</a></div>
+      <div class="modal-footnote">Coin counts for custom levels can vary. Set your target after checking the level in-game.</div>
+    </section>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="levels.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
